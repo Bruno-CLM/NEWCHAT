@@ -4,6 +4,7 @@ const express = require('express');
 const socketio = require('socket.io');
 const formatMessage = require('./utils/messages');
 const {userJoin, getCurrentUser, userLeave, getRoomUsers } = require('./utils/users');
+const { url } = require('inspector');
 
 const app = express();
 const server = http.createServer(app);
@@ -12,7 +13,7 @@ const io = socketio(server);
 const botName = 'New Chat Bot';
 
 app.get("/", (req, res) => {
-    res.sendFile(__dirname + 'https://wizardly-beaver-cd762b.netlify.app/index.html');
+    res.sendFile(__dirname + '/public/index.html');
 })
 
 io.on('connection', socket => {
