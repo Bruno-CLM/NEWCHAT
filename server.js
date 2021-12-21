@@ -11,6 +11,10 @@ const io = socketio(server);
 
 const botName = 'New Chat Bot';
 
+app.get("/", (req, res) => {
+    res.sendFile(__dirname + 'https://wizardly-beaver-cd762b.netlify.app/index.html');
+})
+
 io.on('connection', socket => {
     socket.on('joinRoom', ({username, room}) => {
 
